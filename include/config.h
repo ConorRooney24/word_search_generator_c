@@ -12,7 +12,7 @@ typedef struct
 	int output_to_file = 0;
 	char *output_file_name = "word_search.txt";
 
-	int num_to_generate = 1;
+	int puzzles_to_generate = 1;
 
 } Config;
 
