@@ -6,13 +6,13 @@
 
 typedef struct
 {
-	int grid_width = 20;
-	int grid_height = 20;
+	int grid_width;
+	int grid_height;
 
-	int output_to_file = 0;
-	char *output_file_name = "word_search.txt";
+	int output_to_file;
+	char *output_file_name;
 
-	int puzzles_to_generate = 1;
+	int puzzles_to_generate;
 
 } Config;
 
