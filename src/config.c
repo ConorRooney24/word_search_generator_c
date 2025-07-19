@@ -1,7 +1,7 @@
+#include "include/config.h"
+
 #include <stdlib.h>
 #include <string.h>
-
-#include "include/config.h"
 
 Config config;
 
