@@ -16,4 +16,9 @@ typedef struct
 
 } Config;
 
+extern Config config; // gives global scope to the instance created in config.c
+
+void config_assign_defaults(Config *config);
+void config_free(Config *config);
+
 #endif
