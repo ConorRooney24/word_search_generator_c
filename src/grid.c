@@ -68,8 +68,6 @@ void grid_print(int mode, char grid[][GRID_MAX_WIDTH])
 
                 fprintf(stderr, "Error - No print mode specified\n");
                 return;
-
-                break;
         }
 
 }
