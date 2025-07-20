@@ -7,6 +7,7 @@
 
 int main (int argc, char *argv[])
 {
-	
+	random_init();
+        
         return 0;
 }
