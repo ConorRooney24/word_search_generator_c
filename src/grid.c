@@ -33,3 +33,43 @@ void grid_init(int width, int height)
                 }
         }
 }
+
+void grid_print(int mode, char grid[][GRID_MAX_WIDTH])
+{
+        switch (mode)
+        {
+        case 0: // print entire grid including out of bounds characters
+
+                for (int i = 0; i < GRID_MAX_HEIGHT; i++)
+                {
+                        for (int j = 0; j < GRID_MAX_WIDTH; j++)
+                        {
+                                printf("%c", grid[i][j]);
+                        }
+                        printf("\n");
+                }
+
+                break;
+
+        case 1: //print only the legal space of the grid (the size specified in config)
+
+                for (int i = 0; i < current_grid_height; i++)
+                {
+                        for (int j = 0; j < current_grid_width; j++)
+                        {
+                                printf("%c", grid[i][j]);
+                        }
+                        printf("\n");
+                }
+
+                break;
+
+        default:
+
+                fprintf(stderr, "Error - No print mode specified\n");
+                return;
+
+                break;
+        }
+
+}

@@ -16,6 +16,7 @@ extern int current_grid_width;
 extern int current_grid_height;
 
 void grid_init(int width, int height);
+void grid_print(int mode, char grid[][GRID_MAX_WIDTH]); // Modes: 0 = print entire grid including out of bounds characters, 1 = print only the legal space of the grid (the size specified in config)
 
 
 #endif
