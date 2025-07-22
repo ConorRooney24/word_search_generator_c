@@ -130,6 +130,20 @@ int parse_argument(int argc, char *argv[], int index)
 
                 return 2;
         }
+        else if (strcmp(argv[index], "-o") == 0 || strcmp(argv[index], "--output") == 0)
+        {
+                if (index + 1 >= argc || argv[index + 1][0] == '-') // If there are no more arguments, or the next argument starts with '-'
+                {
+                        config.output_to_file = 1;
+                        return 1;
+                }
+
+                // TODO, Add a function for checking the file name to make sure it does not contain illegal characters
+
+                config.output_to_file = 1;
+                config.output_file_name = strdup(argv[index + 1]);
+                return 2;
+        }
         else
         {
                 fprintf(stderr, "Error: Unknown argument: '%s'\n", argv[index]);
