@@ -1,7 +1,10 @@
 #include "../include/parser.h"
+#include "../include/config.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 int parse_arguments(int argc, char *argv[])
 {
@@ -27,7 +30,7 @@ int parse_arguments(int argc, char *argv[])
 
 int parse_argument(int argc, char *argv[], int index)
 {
-        if (strcmp(argv[index], "--help") == 0 )
+        if (strcmp(argv[index], "--help") == 0)
         {
                 printf("Word_Search_Generator_C\n\n");
                 printf("Usage: wsgen [OPTIONS]\n\n");
@@ -49,6 +52,33 @@ int parse_argument(int argc, char *argv[], int index)
 
                 return 1; // Print usage menu and exit if --help is detected.
         }
+        else if (strcmp(argv[index], "-h") == 0 || strcmp(argv[index], "--height") == 0)
+        {
+                if (index + 1 >= argc)
+                {
+                        fprintf(stderr, "Error: No value given for '%s'.\n", argv[index]);
+                        return -1;
+                }
+                
+                char *endptr;
+
+                config.grid_height = strtol(argv[index + 1], &endptr, 10);
+
+                if (*endptr != '\0')
+                {
+                        fprintf(stderr, "Error: Invalid value given for '%s'.\n", argv[index]);
+                        return -1;
+                }
+
+                if (config.grid_height <= 0)
+                {
+                        fprintf(stderr, "Error: Grid height must be a positive value.\n");
+                        return -1;
+                }
+
+                return 2;
+        }
+        
         else
         {
                 fprintf(stderr, "Error: Unknown argument: '%s'\n", argv[index]);
