@@ -104,6 +104,32 @@ int parse_argument(int argc, char *argv[], int index)
 
                 return 2;
         }
+        else if (strcmp(argv[index], "-n") == 0 || strcmp(argv[index], "--num-puzzles") == 0)
+        {
+                if (index + 1 >= argc)
+                {
+                        fprintf(stderr, "Error: No value given for '%s'.\n", argv[index]);
+                        return -1;
+                }
+                
+                char *endptr;
+
+                config.puzzles_to_generate = strtol(argv[index + 1], &endptr, 10);
+
+                if (*endptr != '\0')
+                {
+                        fprintf(stderr, "Error: Invalid value given for '%s'.\n", argv[index]);
+                        return -1;
+                }
+
+                if (config.puzzles_to_generate <= 0)
+                {
+                        fprintf(stderr, "Error: Number of puzzles to generate must be a positive value.\n");
+                        return -1;
+                }
+
+                return 2;
+        }
         else
         {
                 fprintf(stderr, "Error: Unknown argument: '%s'\n", argv[index]);
