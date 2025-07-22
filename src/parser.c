@@ -50,7 +50,7 @@ int parse_argument(int argc, char *argv[], int index)
                 printf("                                                      three puzzles would be stored in a single file\n");
                 printf("                                                      called 'puzzle.txt')\n");
 
-                return 1; // Print usage menu and exit if --help is detected.
+                return argc - index; // Print usage menu and exit if --help is detected.
         }
         else if (strcmp(argv[index], "-h") == 0 || strcmp(argv[index], "--height") == 0)
         {
