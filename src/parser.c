@@ -78,7 +78,32 @@ int parse_argument(int argc, char *argv[], int index)
 
                 return 2;
         }
-        
+        else if (strcmp(argv[index], "-w") == 0 || strcmp(argv[index], "--width") == 0)
+        {
+                if (index + 1 >= argc)
+                {
+                        fprintf(stderr, "Error: No value given for '%s'.\n", argv[index]);
+                        return -1;
+                }
+                
+                char *endptr;
+
+                config.grid_width = strtol(argv[index + 1], &endptr, 10);
+
+                if (*endptr != '\0')
+                {
+                        fprintf(stderr, "Error: Invalid value given for '%s'.\n", argv[index]);
+                        return -1;
+                }
+
+                if (config.grid_width <= 0)
+                {
+                        fprintf(stderr, "Error: Grid width must be a positive value.\n");
+                        return -1;
+                }
+
+                return 2;
+        }
         else
         {
                 fprintf(stderr, "Error: Unknown argument: '%s'\n", argv[index]);
