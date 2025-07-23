@@ -30,6 +30,7 @@ int parse_arguments(int argc, char *argv[])
 
 int parse_argument(int argc, char *argv[], int index)
 {
+        // TODO This function could be shortened massively if three helper functions are added for each of the different types of values to parse. The first for arguments like --help, which don’t take another value, the second for arguments like -h, -w, and -n, which take an additional int argument, and the third for those like -o, which optionally take a string.
         if (strcmp(argv[index], "--help") == 0)
         {
                 printf("Word_Search_Generator_C\n\n");
