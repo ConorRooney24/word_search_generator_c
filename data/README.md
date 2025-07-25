@@ -15,6 +15,6 @@ The wordlists are split up based on their frequency in the English language and 
 - ```<length>``` is the number of characters in each word.
 
 ## Example File Names
-```scowl_english_top10.3.txt``` - 3 letter words in the top 10%.
-```scowl_english_top20.5.txt``` - 5 letter words in the 10–20% tier.
-```scowl_english_top10_top20.7.txt``` - combined tier, 7 letter words.
+- ```scowl_english_top10.3.txt``` - 3 letter words in the top 10%.
+- ```scowl_english_top20.5.txt``` - 5 letter words in the 10–20% tier.
+- ```scowl_english_top10_top20.7.txt``` - combined tier, 7 letter words.
