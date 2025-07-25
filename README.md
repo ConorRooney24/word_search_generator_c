@@ -1,4 +1,4 @@
-# Word Search Generator C
+# wsgen - Word search generator
 ## What is it?
 This is a simple C library I've written that generates a word search and either prints it to the terminal or saves it to a file.
 ## Why?
